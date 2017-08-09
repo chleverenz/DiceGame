@@ -7914,10 +7914,19 @@ var _user$project$DiceGame$update = F2(
 	function (msg, model) {
 		var _p0 = msg;
 		if (_p0.ctor === 'Increment') {
-			return model + 1;
+			return _elm_lang$core$Native_Utils.update(
+				model,
+				{b: model.b + 2});
 		} else {
-			return model - 1;
+			return _elm_lang$core$Native_Utils.update(
+				model,
+				{b: model.b - 2});
 		}
+	});
+var _user$project$DiceGame$mymodel = {a: '', b: 42};
+var _user$project$DiceGame$Hannes = F2(
+	function (a, b) {
+		return {a: a, b: b};
 	});
 var _user$project$DiceGame$Decrement = {ctor: 'Decrement'};
 var _user$project$DiceGame$Increment = {ctor: 'Increment'};
@@ -7947,7 +7956,7 @@ var _user$project$DiceGame$view = function (model) {
 					{
 						ctor: '::',
 						_0: _elm_lang$html$Html$text(
-							_elm_lang$core$Basics$toString(model)),
+							_elm_lang$core$Basics$toString(model.b)),
 						_1: {ctor: '[]'}
 					}),
 				_1: {
@@ -7970,7 +7979,7 @@ var _user$project$DiceGame$view = function (model) {
 		});
 };
 var _user$project$DiceGame$main = _elm_lang$html$Html$beginnerProgram(
-	{model: 0, view: _user$project$DiceGame$view, update: _user$project$DiceGame$update})();
+	{model: _user$project$DiceGame$mymodel, view: _user$project$DiceGame$view, update: _user$project$DiceGame$update})();
 
 var Elm = {};
 Elm['DiceGame'] = Elm['DiceGame'] || {};
